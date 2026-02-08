@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boston House Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Boston House Price Predictor</h1>
+    <p class="subtitle">Enter house details and get instant price prediction</p>
+
+    <form action="/predict" method="post">
+        <div class="grid">
+            <input name="CRIM" placeholder="CRIM" required>
+            <input name="ZN" placeholder="ZN" required>
+            <input name="INDUS" placeholder="INDUS" required>
+            <input name="NOX" placeholder="NOX" required>
+            <input name="RM" placeholder="RM" required>
+            <input name="AGE" placeholder="AGE" required>
+            <input name="DIS" placeholder="DIS" required>
+            <input name="RAD" placeholder="RAD" required>
+            <input name="TAX" placeholder="TAX" required>
+            <input name="PTRATIO" placeholder="PTRATIO" required>
+            <input name="LSTAT" placeholder="LSTAT" required>
+        </div>
+         <br>
+        <button type="submit">🔮 Predict Price</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
+
